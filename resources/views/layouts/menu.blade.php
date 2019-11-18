@@ -14,7 +14,7 @@
                     <a href="#">Reportes</a>
                 </li>
                 <li>
-                    <a href="#">Acerca</a>
+                    <a href="#">Vehículos</a>
                 </li>
             </ul>
         </nav>
