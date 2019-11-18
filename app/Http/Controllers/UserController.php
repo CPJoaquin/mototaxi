@@ -40,7 +40,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-
+      
         if (empty($user)) {
             return redirect(route('user.index'));
         }
@@ -72,7 +72,6 @@ class UserController extends Controller
                 }
             }
             else {
-                Alert()->Error('Código duplicado','Advertencia');
                 return redirect(route('user.edit', compact('id')));
             }
         }
@@ -89,22 +88,18 @@ class UserController extends Controller
                 $user->save();
             }
         }
-
-        Alert()->Success('Modificado correctamente','Satisfactorio');
-
         return redirect(route('user.show', compact('id')));
     }
 
     public function store(ValidatorUserRequest  $request)
     {
-
         $request['password'] = Hash::make($request->password);
         $user = User::create($request->all());
-
+        $url = $request->file('photo');
         if($request->file('photo'))
         {
-            $path = Storage::disk('public')->put('photos', $request->file('photo'));
-            $user->photo = asset($path);
+            $path = $url->store('photos', 'public');
+            $user->photo = $path;
         }
 
         $user->save();
@@ -121,7 +116,7 @@ class UserController extends Controller
         }
         else{
             $user->delete();
-            Alert()->Success('Usuario eliminado correctamente','Satisfactorio');
+           
             return redirect(route('user.index'));
         }
     }

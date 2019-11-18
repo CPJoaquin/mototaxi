@@ -1,16 +1,12 @@
 <header id="header" >
     <div class="center" >
-        <div  id="logo">
-            <img src="{{ asset('/images/logo.svg') }}" class="app-logo" alt="logotipo">
-            <span id="brand" >
-                <strong>Fast </strong>Moto
-            </span>
-        </div>
         <nav id="menu">
             <ul>
-                <li>
-                    <a href="{!! route('user.index') !!}">Usuarios</a>
-                </li>
+                @if (Auth::user()->role === 'A' || Auth::user()->role === 'B')
+                    <li>
+                        <a href="{!! route('user.index') !!}">Usuarios</a>
+                    </li>
+                @endif
                 <li>
                     <a href="#">Viajes</a>
                 </li>

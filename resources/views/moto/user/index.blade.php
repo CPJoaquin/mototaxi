@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('layouts.menu')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md">
@@ -31,6 +32,7 @@
                             <thead>
                                 <tr>
                                     <th width="50px">Número</th>
+                                    <th>Rol</th>
                                     <th>Nombre</th>
                                     <th>Email</th>
                                     <th></th>
@@ -40,6 +42,7 @@
                                 @foreach ($user as $item)
                                 <tr>
                                     <td style="text-align: center;">{!!$item->id!!}</td>
+                                    <td>{!! $item->role !!}</td>
                                     <td>{!!$item->name!!}</td>
                                     <td>{!!$item->email!!}</td>
                                     <td style="text-align: center;">
@@ -47,7 +50,7 @@
                                             {!! Form::open(['route' => ['user.destroy', $item->id], 'method' =>
                                             'DELETE', 'id' => 'formDelete']) !!}
                                             <button class="btn btn-primary" data-toggle="dropdown" type="button"><span
-                                                    data-feather="settings"></button>
+                                                    data-feather="settings">  </button>
                                             <div class="dropdown-menu">
                                                 <a href="{!!route('user.show', [$item->id])!!}"
                                                     class="dropdown-item btn btn-warning btn-sm"><span

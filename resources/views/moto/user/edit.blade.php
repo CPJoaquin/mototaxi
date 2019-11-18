@@ -19,7 +19,7 @@
                                 </div>
                                 {!! Form::model($item, ['route' => ['user.update', $item->id], 'method' => 'patch', 'enctype'=>'multipart/form-data']) !!}
 
-                                @include('user.fields')
+                                @include('moto.user.fields')
 
                                 {!! Form::close() !!}
                             </div>

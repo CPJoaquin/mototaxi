@@ -9,7 +9,7 @@
             </section>
             <div class="card-group">
                 <div class="card">
-                    <img class="card-img-top" src="{!! ($item->photo == null)?'':$item->photo !!}" alt="Foto del Trabajador" style="width:100%">
+                    <img class="card-img-top" src="{!! asset($item->photo) !!}" alt="Foto del Trabajador" style="width:100%">
                 </div>
                 <div class="card table-responsive">
                     <div class="card-body">

@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
 
        <!-- Fontfaces CSS-->
        <link href="{{ asset('css/font-face.css') }}" rel="stylesheet" media="all">
@@ -46,9 +47,14 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Fast Moto
-                </a>
+                <div class="center">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
+                        <div id="logo">
+                            <img src="{{ asset('/images/logo.svg') }}" class="app-logo" alt="logotipo">
+                            <h3><strong>Fast</strong> <small>moto</small></h3>
+                        </div>
+                    </a>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -128,5 +134,6 @@
 
     <!-- Main JS-->
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/datatables.min.js') }}"></script>
 </body>
 </html>
