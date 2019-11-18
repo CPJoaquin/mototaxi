@@ -14,7 +14,7 @@
                     <a href="#">Reportes</a>
                 </li>
                 <li>
-                    <a href="#">Vehículos</a>
+                    <a href="{!! route('moto.index') !!}">Vehículos</a>
                 </li>
             </ul>
         </nav>

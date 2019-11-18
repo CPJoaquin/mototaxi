@@ -15,7 +15,13 @@ class CreateMotosTable extends Migration
     {
         Schema::create('motos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('placa', 10)->unique();
+            $table->unsignedBigInteger('user_id');
+            $table->string('color',30);
+            $table->string('marc',50);
+            $table->string('model', 10)->nullable();            
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery.datatables.min.css') }}" rel="stylesheet">
 
        <!-- Fontfaces CSS-->
        <link href="{{ asset('css/font-face.css') }}" rel="stylesheet" media="all">
@@ -41,6 +41,8 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet" media="all">
+
+    <script src="{{ asset('js/jquery.datatables.min.js') }}"></script>
  
 </head>
 <body>
@@ -62,7 +64,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -106,8 +107,8 @@
         </main>
     </div>
     <footer id="footer">
-        <div class="center">
-            <p>&copy; Joaquin Cruz Pizarro, 2019</p>
+        <div class="center text-center">
+            <p>&copy; <strong>Joaquin Cruz Pizarro</strong>, 2019</p>
         </div>
     </footer>
 
@@ -134,6 +135,6 @@
 
     <!-- Main JS-->
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('js/datatables.min.js') }}"></script>
+
 </body>
 </html>
