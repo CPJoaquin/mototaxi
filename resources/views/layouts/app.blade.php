@@ -19,7 +19,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/jquery.datatables.min.css') }}" rel="stylesheet">
 
        <!-- Fontfaces CSS-->
        <link href="{{ asset('css/font-face.css') }}" rel="stylesheet" media="all">
@@ -41,9 +40,9 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet" media="all">
-
-    <script src="{{ asset('js/jquery.datatables.min.js') }}"></script>
- 
+    <link rel="stylesheet" href="jquery.dataTables.min.css">
+   
+    
 </head>
 <body>
     <div id="app">
@@ -135,6 +134,14 @@
 
     <!-- Main JS-->
     <script src="{{ asset('js/main.js') }}"></script>
-
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
+  
 </body>
 </html>

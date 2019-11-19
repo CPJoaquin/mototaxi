@@ -15,7 +15,6 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        //dd($request->buscar);
         $user = User::where('name', 'LIKE', '%'.$request->buscar.'%')->paginate(10);
 
         return view('moto.user.index', compact('user'));

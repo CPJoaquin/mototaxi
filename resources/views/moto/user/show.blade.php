@@ -22,14 +22,6 @@
                             <table class="table table-responsive">
                                 <tbody>
                                     <tr>
-                                        <td> <h5>Código:</h5> </td>
-                                        <td> <h5>{!! $item->cod !!}</h5> </td>
-                                    </tr>
-                                    <tr>
-                                        <td> <h5>Usuario:</h5> </td>
-                                        <td> <h5>{!! $item->username !!}</h5> </td>
-                                    </tr>
-                                    <tr>
                                         <td> <h5>Nombres:</h5> </td>
                                         <td> <h5>{!! $item->name !!}</h5> </td>
                                     </tr>
@@ -39,11 +31,7 @@
                                     </tr>
                                     <tr>
                                         <td> <h5>Rol:</h5></td>
-                                        <td> <h5>{!! $item->role !!}</h5> </td>
-                                    </tr>
-                                    <tr>
-                                        <td> <h5>Estado:</h5></td>
-                                        <td> <h5> @if ($item->status == "A") ACTIVO @else INACTIVO @endif </h5> </td>
+                                        <td> <h5>@include('moto.user.role')</h5> </td>
                                     </tr>
                                 </tbody>
                             </table>
