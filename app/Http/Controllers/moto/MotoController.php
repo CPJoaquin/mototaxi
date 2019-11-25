@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\moto;
 
 use App\Http\Controllers\Controller;
+use App\Moto;
+use App\User;
 use Illuminate\Http\Request;
 
 class MotoController extends Controller
@@ -12,9 +14,23 @@ class MotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('moto.motorcycle.index');
+        $motos = Moto::where('placa', 'LIKE', $request->buscar)
+                ->orWhere('model', 'LIKE', '%'.$request->buscar.'%')->paginate(10);
+        $conductors = $this->getConductors();
+        return view('moto.motorcycle.index')
+            ->with('motos', $motos)
+            ->with('conductors', $conductors);
+    }
+
+    private function getConductors(){
+        $users = User::where('role', 'LIKE', 'C')->get();
+        $conductors = [];
+        foreach($users as $user){
+            $conductors["$user->id"] = "$user->name";
+        }
+        return $conductors;
     }
 
     /**
@@ -24,7 +40,7 @@ class MotoController extends Controller
      */
     public function create()
     {
-
+        return view('moto.motorcycle.create');
     }
 
     /**
@@ -57,7 +73,7 @@ class MotoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('moto.motorcycle.edit');
     }
 
     /**
@@ -80,6 +96,6 @@ class MotoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo "eliminar";
     }
 }
