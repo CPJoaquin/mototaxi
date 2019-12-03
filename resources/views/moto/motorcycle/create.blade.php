@@ -1,5 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@include('app.menu')
+@include('layouts.menu')
     crear
 @endsection

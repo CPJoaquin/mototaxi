@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('content')
 @include('layouts.menu')
-<div class="container">
+<div class="main container">
     <div class="row justify-content-center">
         <div class="col-md">
-            <div class="card">
-                <div class="card-body">
+            <div class="card row">
+                <div class="form-group" >
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-                    <section class="content-header">
+                    <section>
                         <h1 class="pull-left">Registro de vehiculos</h1>
                         <div class="d-flex">
                             <a class="btn btn-primary ml-auto" style="margin-right: 5px;"
@@ -20,14 +20,14 @@
                         <br>
                     </section>
                     {!! Form::open(['route' => 'moto.index', 'method' => 'GET', 'class' => ''])!!}
-                    <div id="input-group">
+                    <div id="form-group">
                         {!!Form::text('buscar', null, ['class' => 'form-control', 'placeholder' => 'Buscar','style' =>
                         'text-transform:uppercase;',
                         'onkeyup' => 'javascript:this.value=this.value.toUpperCase();'])!!}
                     </div>
                     {!!Form::close()!!}
                     <br>
-                    <div class="table-responsive">
+                    <div>
                         <table id="grilla" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr class="text-center">
@@ -76,4 +76,5 @@
         </div>
     </div>
 </div>
+
 @endsection

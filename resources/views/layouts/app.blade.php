@@ -40,7 +40,7 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
    
     
 </head>
@@ -134,14 +134,12 @@
 
     <!-- Main JS-->
     <script src="{{ asset('js/main.js') }}"></script>
+  
+    <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
     
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        } );
-    </script>
+    
+ 
   
 </body>
 </html>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ValidatorUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cookie;
 
 class UserController extends Controller
 {
@@ -27,12 +28,13 @@ class UserController extends Controller
 
     public function show($id)
     {
+        //dd(Request::cookie('name'));
+        //dd(Cookie::get('nombre'));
         $user = User::findOrFail($id);
 
         if (empty($user)) {
             return redirect(route('user.index'));
         }
-
         return view('moto.user.show')->with('item', $user);
     }
 
@@ -55,14 +57,13 @@ class UserController extends Controller
             return redirect(route('user.index'));
         }
 
-        $tmp = User::where('cod',$request->cod)->get();
+        $tmp = User::where('id',$request->id)->get();
 
         if (!isset($tmp)) {
-            if($tmp[0]->cod == $user['cod']){
+            if($tmp[0]->id == $user['id']){
                 $request['password'] = Hash::make($request->password);
 
                 $user->update($request->all());
-
                 if($request->file('photo'))
                 {
                     $path = Storage::disk('public')->put('photos', $request->file('photo'));
@@ -87,7 +88,8 @@ class UserController extends Controller
                 $user->save();
             }
         }
-        return redirect(route('user.show', compact('id')));
+       // $cookie = cookie('nombre', $user->name, 5);
+        return response(redirect(route('user.show', compact('id'))));//->cookie($cookie);
     }
 
     public function store(ValidatorUserRequest  $request)

@@ -21,6 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resources([
         'user' => 'UserController',
         'moto' => 'moto\MotoController',
+        'travel' => 'moto\TravelController',
     ]);
  
 });

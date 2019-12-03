@@ -8,7 +8,7 @@
                     </li>
                 @endif
                 <li>
-                    <a href="#">Viajes</a>
+                    <a href="{!! route('travel.index') !!}">Viajes</a>
                 </li>
                 <li>
                     <a href="#">Reportes</a>
