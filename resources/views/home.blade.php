@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 @include('layouts.menu')
 <div class="center">
@@ -8,17 +7,15 @@
         <aside id="sidebar">
         <div id="nav-blog" class="sidebar-item">
             <h3>¿Aun no probaste nuestro servicio?</h3>
-            <a href="#" class="btn btn-success">Registrarse gratis</a>
+            <a href="{{ route('register') }}" class="btn-outline-primary form-control">Registrarse gratis</a>
         </div>
         <div id="nav-blog" class="sidebar-item">
             <h3>inicia sesion para acceder a nuestros servicios</h3>
-            <a href="#" class="btn btn-success">Iniciar sesion</a>
+            <a href="{{ route('login') }}" class="btn-outline-primary form-control">Iniciar sesion</a>
         </div>
         </aside>
     @endguest
-
     <section id="content">
-        <h2 class="subheader">Transporte en 2 ruedas</h2>
         <div id="articles">
             <article class="article-item" id="article-template">
                     <div class="image-wrap">
