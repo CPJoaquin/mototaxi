@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\moto;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidatorMotoRequest;
 use App\Moto;
 use App\User;
 use Illuminate\Http\Request;
@@ -40,7 +41,8 @@ class MotoController extends Controller
      */
     public function create()
     {
-        return view('moto.motorcycle.create');
+        return view('moto.motorcycle.create')
+            ->with('conductors', $this->getConductors());
     }
 
     /**
@@ -49,9 +51,11 @@ class MotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidatorMotoRequest $request)
     {
-        //
+        $motorcyle = Moto::create($request->all());
+        $motorcyle->save();
+        return redirect( route('moto.index'));
     }
 
     /**
@@ -73,7 +77,10 @@ class MotoController extends Controller
      */
     public function edit($id)
     {
-        return view('moto.motorcycle.edit');
+        $moto = Moto::findOrFail($id);
+        return view('moto.motorcycle.edit')
+            ->with('item', $moto)
+            ->with('conductors', $this->getConductors());
     }
 
     /**
@@ -83,9 +90,15 @@ class MotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidatorMotoRequest $request, $id)
     {
-        //
+        $moto = Moto::findOrFail($id);
+
+        if (empty($moto)) {
+            return redirect(route('moto.motorcycle.index'));
+        }
+        $moto->update($request->all());
+        return response(redirect(route('moto.index')));
     }
 
     /**
@@ -96,6 +109,11 @@ class MotoController extends Controller
      */
     public function destroy($id)
     {
-        echo "eliminar";
+        $moto = Moto::findOrFail($id);
+        if (empty($moto)) {
+            return redirect(route('moto.motorcycle.index'));
+        }
+        $moto->delete();
+        return response(redirect(route('moto.index')));
     }
 }

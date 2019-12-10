@@ -28,8 +28,6 @@ class UserController extends Controller
 
     public function show($id)
     {
-        //dd(Request::cookie('name'));
-        //dd(Cookie::get('nombre'));
         $user = User::findOrFail($id);
 
         if (empty($user)) {
@@ -88,7 +86,6 @@ class UserController extends Controller
                 $user->save();
             }
         }
-       // $cookie = cookie('nombre', $user->name, 5);
         return response(redirect(route('user.show', compact('id'))));//->cookie($cookie);
     }
 

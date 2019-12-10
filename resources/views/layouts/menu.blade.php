@@ -6,16 +6,17 @@
                     <li>
                         <a href="{!! route('user.index') !!}">Usuarios</a>
                     </li>
+                    <li>
+                        <a href="{!! route('moto.index') !!}">Vehículos</a>
+                    </li>
                 @endif
                 <li>
-                    <a href="{!! route('travel.index') !!}">Viajes</a>
+                    <a href="{!! route('travel.index') !!}">Transporte</a>
                 </li>
                 <li>
                     <a href="#">Reportes</a>
                 </li>
-                <li>
-                    <a href="{!! route('moto.index') !!}">Vehículos</a>
-                </li>
+                
             </ul>
         </nav>
         <div class="clearfix" ></div>
