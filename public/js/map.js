@@ -1,3 +1,5 @@
+// [-17.97856, -67.10539]
+
 $(document).ready(function () {
   //Click al boton para pedir permisos
  // $("#pedirvan").click(function () {
@@ -7,12 +9,12 @@ $(document).ready(function () {
           navigator.geolocation.getCurrentPosition(
                   //Si el navegador entrega los datos de geolocalizacion los imprimimos
                   function (position) {
-                      window.alert("El transporte ira a su ubicacion actual.");
+                      //window.alert("El transporte ira a su ubicacion actual.");
                       $("#nlat").text(position.coords.latitude);
                       $("#nlon").text(position.coords.longitude);
-                      alert($("#nalt").value);
                       let myMap = L.map('myMap').setView([-17.97856, -67.10539], 15)
-
+                      var long = document.getElementById('nlon').value;
+                      alert(long);
                       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         maxZoom: 18,
                       }).addTo(myMap);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\moto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TravelController extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,9 @@ class TravelController extends Controller
      */
     public function index()
     {
-
-        return view('moto.travel.index');
+        //
     }
 
-    public function map()
-    {
-        return view('moto.travel.map');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +24,7 @@ class TravelController extends Controller
      */
     public function create()
     {
-        return view('moto.travel.create');
+        //
     }
 
     /**
@@ -40,7 +35,7 @@ class TravelController extends Controller
      */
     public function store(Request $request)
     {
-        return 'almacenando solicitud';
+        //
     }
 
     /**
@@ -51,7 +46,7 @@ class TravelController extends Controller
      */
     public function show($id)
     {
-        return 'mostrando transporte';
+        //
     }
 
     /**
@@ -62,7 +57,7 @@ class TravelController extends Controller
      */
     public function edit($id)
     {
-        return 'editando travel';
+        //
     }
 
     /**
@@ -74,7 +69,7 @@ class TravelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'actualizando travel';
+        //
     }
 
     /**
@@ -85,6 +80,6 @@ class TravelController extends Controller
      */
     public function destroy($id)
     {
-        return 'eliminando travel';
+        //
     }
 }

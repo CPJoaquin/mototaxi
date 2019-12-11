@@ -23,5 +23,5 @@ Route::group(['middleware' => ['auth']], function () {
         'moto' => 'moto\MotoController',
         'travel' => 'moto\TravelController',
     ]);
- 
+    Route::get('/map', 'moto\TravelController@map')->name('travel.map');
 });

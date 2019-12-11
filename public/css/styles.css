@@ -43,14 +43,12 @@ body {
 	}
 }
 #menu {
-	width: 70%;
-	float: right;;
+	width: 100%;
 	font-size: 18px;
 }
 #menu ul {
 	line-height: 85px;
-	width: 60%;
-	float: right;
+	width: 100%;
 }
 #menu ul li {
 	display: inline-block;

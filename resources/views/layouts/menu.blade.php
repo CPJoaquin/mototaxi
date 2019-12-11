@@ -16,6 +16,12 @@
                 <li>
                     <a href="#">Reportes</a>
                 </li>
+                <li>
+                    <a href="{!! route('travel.map') !!}">mapa</a>
+                </li>
+                <li>
+                    <a href="{!! route('travel.create') !!}">Solicitar transporte</a>
+                </li>
                 
             </ul>
         </nav>
