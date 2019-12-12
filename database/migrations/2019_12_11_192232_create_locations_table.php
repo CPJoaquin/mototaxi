@@ -17,10 +17,7 @@ class CreateLocationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('primary',50);
             $table->string('secondary',100);
-            $table->unsignedBigInteger('travel_id');
             $table->timestamps();
-            
-            $table->foreign('travel_id')->references('id')->on('travels');
         });
     }
 

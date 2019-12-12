@@ -27,9 +27,6 @@
                     </div>
                     {!!Form::close()!!}
                     <br>
-                    <div>
-                        
-                    </div>
                 </div>
             </div>
         </div>

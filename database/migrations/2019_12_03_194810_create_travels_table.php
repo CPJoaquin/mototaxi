@@ -18,6 +18,7 @@ class CreateTravelsTable extends Migration
             $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('driver_id')->nullable();
             $table->unsignedBigInteger('moto_id')->nullable();
+            $table->unsignedBigInteger('location_id')->nullable();
             $table->string('state', 10);
             $table->date('date');       
             $table->time('time')->nullable();     
@@ -26,6 +27,7 @@ class CreateTravelsTable extends Migration
             $table->foreign('cliente_id')->references('id')->on('users');
             $table->foreign('driver_id')->references('id')->on('users');
             $table->foreign('moto_id')->references('id')->on('motos');
+            $table->foreign('location_id')->references('id')->on('locations');
         });
     }
 

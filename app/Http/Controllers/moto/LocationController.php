@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\moto;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidatorLocationRequest;
+use App\Location;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -24,7 +26,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        return view('moto.location.create');
     }
 
     /**
@@ -33,9 +35,16 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidatorLocationRequest $request)
     {
-        //
+        $location = Location::create([
+            'primary' => $request->primary,
+            'secondary' => $request->secondary,
+        ]);
+        $location->save();
+         $travel = (new TravelController)->store($request->time, $location->id);
+         dd($travel);
+
     }
 
     /**

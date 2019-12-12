@@ -11,15 +11,15 @@
                         {{ session('status') }}
                     </div>
                     @endif
-travel
+
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header d-flex">
                                     {{ __('Solicitar transporte.') }}                                    
                                 </div>
-                                {!! Form::open(['route' => 'travel.store','method'=>'POST','enctype'=>'multipart/form-data']) !!}
-                                    @include('moto.travel.fields')
+                                {!! Form::open(['route' => 'location.store','method'=>'POST','enctype'=>'multipart/form-data']) !!}
+                                    @include('moto.location.fields')
                                 {!! Form::close() !!}
                             </div>
                         </div>

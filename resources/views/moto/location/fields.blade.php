@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-group row {{ $errors->has('secondary') ? 'has-error' : ''}}">
-        {!! Form::label('secondary', 'Calle secundaria:', ['class' => 'col-md-4 col-form-label text-md-right']) !!}
+        {!! Form::label('secondary', 'Calle secundaria y/o descripción:', ['class' => 'col-md-4 col-form-label text-md-right']) !!}
 
         <div class="col-md-6">
             {!! Form::text('secondary', null, ['class' => 'form-control', 'autofocus' => 'autofocus','style' =>

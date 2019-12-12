@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\moto;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidatorTravelRequest;
+use App\Travel;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\TryCatch;
 
 class TravelController extends Controller
 {
@@ -38,9 +43,27 @@ class TravelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($item, $location_id)
     {
-        return 'almacenando solicitud';
+        try{
+            $now = date("Y-m-d");        
+            $time = date("H:i:s");
+            $localTime =date('H:i:s',  strtotime('-4 hour', strtotime($time)));
+            $cliente_id = Auth::user()->id;
+            $travel = Travel::create([
+                'cliente_id' => $cliente_id,
+                'driver_id' => null,
+                'moto_id' => null,
+                'location_id' => $location_id,
+                'state' => 'espera',
+                'date' => $now,
+                'time' => $localTime,
+            ]);
+            $travel->save();
+        }
+        catch(\Exception $exeption){
+            return $exeption;
+        }   
     }
 
     /**
