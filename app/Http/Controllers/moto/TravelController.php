@@ -60,6 +60,7 @@ class TravelController extends Controller
                 'time' => $localTime,
             ]);
             $travel->save();
+            return true;
         }
         catch(\Exception $exeption){
             return $exeption;

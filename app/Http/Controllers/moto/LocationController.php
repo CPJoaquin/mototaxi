@@ -16,7 +16,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        return view('moto.location.index');
     }
 
     /**
@@ -43,8 +43,12 @@ class LocationController extends Controller
         ]);
         $location->save();
          $travel = (new TravelController)->store($request->time, $location->id);
-         dd($travel);
-
+         if($travel){
+            return redirect(route('location.index'));
+         }
+         else{
+             return redirect(route('location.create'));
+         }
     }
 
     /**

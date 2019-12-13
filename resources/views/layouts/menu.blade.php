@@ -1,30 +1,27 @@
-<header id="header" >
-    <div class="center" >
-        <nav id="menu">
-            <ul>
-                @if (Auth::user()->role === 'A' || Auth::user()->role === 'B')
-                    <li>
-                        <a href="{!! route('user.index') !!}">Usuarios</a>
-                    </li>
-                    <li>
-                        <a href="{!! route('moto.index') !!}">Vehículos</a>
-                    </li>
-                @endif
-                <li>
-                    <a href="{!! route('travel.index') !!}">Transporte</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            @if (Auth::user()->role === 'A' || Auth::user()->role === 'B')
+                <li class="nav-item">
+                    <a href="{!! route('user.index') !!}" class="nav-item btn btn-outline-info text-secondary" >Usuarios</a>
                 </li>
-                <li>
-                    <a href="#">Reportes</a>
+                <li class="nav-item">
+                    <a href="{!! route('moto.index') !!}" class="nav-item btn btn-outline-info text-secondary">Vehículos</a>
+                </li>        
+                <li class="nav-item">
+                    <a href="{!! route('travel.index') !!}" class="nav-item btn btn-outline-info text-secondary">Transporte</a>
                 </li>
-                <li>
-                    <a href="{!! route('travel.map') !!}">mapa</a>
+                <li class="nav-item">
+                    <a href="#" class="nav-item btn btn-outline-info text-secondary">Reportes</a>
                 </li>
-                <li>
-                    <a href="{!! route('location.create') !!}">Solicitar transporte</a>
-                </li>
-                
-            </ul>
-        </nav>
-        <div class="clearfix" ></div>
+            @endif   
+            <li class="nav-item">
+                <a href="{!! route('location.index') !!}" class="nav-item btn btn-outline-info text-secondary">Servicio</a>
+            </li>        
+            <li class="nav-item">
+                <a href="{!! route('travel.map') !!}" class="nav-item btn btn-outline-info text-secondary">mapa</a>
+            </li>
+        </ul>
     </div>
-</header>
+</nav>

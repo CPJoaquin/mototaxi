@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('layouts.menu')
-<div class="center">
+<div class="center text-center">
     @guest
         
         <aside id="sidebar">
