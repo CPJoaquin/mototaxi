@@ -29,9 +29,4 @@
     </section>
     <div class="clearfix"></div>
 </div>
-<footer id="footer">
-    <div class="center">
-        <p>&copy; Joaquin Cruz Pizarro, 2019</p>
-    </div>
-</footer>
 @endsection
