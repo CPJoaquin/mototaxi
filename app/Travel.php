@@ -15,4 +15,13 @@ class Travel extends Model
         'date',
         'time',
     ];
+    public function cliente(){
+        return $this->hasOne('App\User', 'id','cliente_id');
+    }
+    public function conductor(){
+        return $this->hasOne('App\User', 'id', 'driver_id');
+    }
+    public function placa(){
+        return $this->hasOne('App\Moto', 'id', 'moto_id' );
+    }
 }

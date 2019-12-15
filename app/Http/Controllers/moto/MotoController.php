@@ -7,6 +7,7 @@ use App\Http\Requests\ValidatorMotoRequest;
 use App\Moto;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MotoController extends Controller
 {
@@ -115,5 +116,8 @@ class MotoController extends Controller
         }
         $moto->delete();
         return response(redirect(route('moto.index')));
+    }
+    public function list(){
+        return DB::table('motos')->pluck('placa', 'id');
     }
 }

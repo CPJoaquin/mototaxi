@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidatorLocationRequest;
 use App\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LocationController extends Controller
 {
@@ -94,5 +95,14 @@ class LocationController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function list(){
+        $primary = DB::table('locations')->pluck('primary', 'id');
+        $secondary = DB::table('locations')->pluck('secondary', 'id');
+        $list = [];
+        foreach($primary as $id => $value){
+            $list["$id"] = $value.' '.$secondary["$id"];
+        }
+        return $list;
     }
 }

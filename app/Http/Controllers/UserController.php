@@ -10,6 +10,7 @@ use App\Http\Requests\ValidatorUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -117,5 +118,8 @@ class UserController extends Controller
            
             return redirect(route('user.index'));
         }
+    }
+    public function list(){
+        return DB::table('users')->pluck('name', 'id');
     }
 }

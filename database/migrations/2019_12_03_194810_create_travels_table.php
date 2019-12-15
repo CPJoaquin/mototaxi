@@ -18,7 +18,7 @@ class CreateTravelsTable extends Migration
             $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('driver_id')->nullable();
             $table->unsignedBigInteger('moto_id')->nullable();
-            $table->unsignedBigInteger('location_id')->nullable();
+            $table->unsignedBigInteger('location_id')->unique()->nullable();
             $table->string('state', 10);
             $table->date('date');       
             $table->time('time')->nullable();     

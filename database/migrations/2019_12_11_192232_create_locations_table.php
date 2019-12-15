@@ -17,6 +17,7 @@ class CreateLocationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('primary',50);
             $table->string('secondary',100);
+            $table->string('description', 150)->nullable();
             $table->timestamps();
         });
     }

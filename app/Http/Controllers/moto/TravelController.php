@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\moto;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 use App\Http\Requests\ValidatorTravelRequest;
 use App\Travel;
+use App\User;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,8 +21,16 @@ class TravelController extends Controller
      */
     public function index()
     {
-
-        return view('moto.travel.index');
+        $travels = Travel::all();
+        $users = (new UserController )->list();
+        $locations = (new LocationController)->list();  
+        $motos = (new MotoController)->list();
+        //dd($users);
+        return view('moto.travel.index')
+                ->with('travels', $travels)
+                ->with('locations', $locations)
+                ->with('motos', $motos)
+                ->with('users', $users);
     }
 
     public function map()
