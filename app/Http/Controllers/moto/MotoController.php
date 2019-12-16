@@ -117,7 +117,20 @@ class MotoController extends Controller
         $moto->delete();
         return response(redirect(route('moto.index')));
     }
+//FUNCIONES 
     public function list(){
         return DB::table('motos')->pluck('placa', 'id');
+    }
+    public  function placas(){
+        $motos = $this->list();
+        $placas = [];
+        foreach($motos as $id => $placa){
+            $placas["$id"] = $placa;
+        }
+        return $placas;
+    }
+    public function getPlaca($id){
+        $placa = Moto::where('user_id', $id)->first();
+        return $placa;
     }
 }

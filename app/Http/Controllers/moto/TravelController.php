@@ -21,7 +21,7 @@ class TravelController extends Controller
      */
     public function index()
     {
-        $travels = Travel::all();
+        $travels = Travel::latest()->get();
         $users = (new UserController )->list();
         $locations = (new LocationController)->list();  
         $motos = (new MotoController)->list();
@@ -96,7 +96,13 @@ class TravelController extends Controller
      */
     public function edit($id)
     {
-        return 'editando travel';
+        $travel = Travel::findOrFail($id);
+        $conductors = (new UserController)->conductors();
+        $placas = (new MotoController)->placas();
+        return view('moto.travel.edit')
+                ->with('conductors', $conductors)
+                ->with('placas', $placas)
+                ->with('item', $travel);
     }
 
     /**
@@ -108,7 +114,14 @@ class TravelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'actualizando travel';
+        $moto = (new MotoController)->getPlaca($request->driver_id);
+        $travel = Travel::findOrFail($id);
+        $moto_id = $moto->id;
+        $travel->driver_id = $request->driver_id;
+        $travel->moto_id = $moto_id;
+        $travel->state = 'en camino';
+        $travel->save();
+        return redirect( route('travel.index'));
     }
 
     /**
@@ -120,5 +133,19 @@ class TravelController extends Controller
     public function destroy($id)
     {
         return 'eliminando travel';
+    }
+
+//FUNCTIONES
+    public function confirm($id){
+        $travel = Travel::findOrFail($id);
+        $travel->state = 'confirmado';
+        $travel->save();
+        return redirect( route('location.index'));
+    }
+    public function cancel($id){
+        $travel = Travel::findOrFail($id);
+        $travel->state = 'cancelado';
+        $travel->save();
+        return redirect( route('location.index'));
     }
 }

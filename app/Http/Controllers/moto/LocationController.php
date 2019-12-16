@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\moto;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 use App\Http\Requests\ValidatorLocationRequest;
 use App\Location;
 use Illuminate\Http\Request;
@@ -17,6 +18,8 @@ class LocationController extends Controller
      */
     public function index()
     {
+        $conductors = (new UserController)->conductors();
+        $motos = (new MotoController)->placas();
         return view('moto.location.index');
     }
 

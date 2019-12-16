@@ -38,6 +38,16 @@ class User extends Authenticatable
     ];
 
     public function travels(){
-        return $this->hasMany(Travel::class, 'cliente_id', 'id');
+        if($this->role == 'C' )
+        {
+            return $this->hasMany(Travel::class, 'driver_id', 'id')->orderBy('created_at', 'desc');
+        }
+        else{
+            return $this->hasMany(Travel::class, 'cliente_id', 'id')->orderBy('created_at', 'desc');            
+        }
+        return $this->hasMany(Travel::class, 'cliente_id', 'id')->orderBy('created_at', 'desc');        
+    }
+    public function Assignements(){
+       
     }
 }

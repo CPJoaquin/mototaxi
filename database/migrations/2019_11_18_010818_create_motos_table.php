@@ -19,7 +19,7 @@ class CreateMotosTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('color',30);
             $table->string('marc',50);
-            $table->string('model', 10)->nullable();            
+            $table->string('model', 100)->nullable();            
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

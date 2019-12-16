@@ -122,4 +122,12 @@ class UserController extends Controller
     public function list(){
         return DB::table('users')->pluck('name', 'id');
     }
+    public function conductors(){
+        $users = User::where('role', 'LIKE', 'C')->get();
+        $conductors = [];
+        foreach($users as $user){
+            $conductors["$user->id"] = "$user->name";
+        }
+        return $conductors;
+    }
 }

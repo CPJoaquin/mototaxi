@@ -31,8 +31,8 @@
                         <table id="grilla" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr class="text-center">
-                                    <th>conductor</th>
-                                    <th>cliente</th>
+                                    <th>Cliente</th>
+                                    <th>Conductor</th>
                                     <th>placa</th>
                                     <th>fecha</th>
                                     <th>hora</th>
@@ -66,7 +66,7 @@
                                                         </button>
                                                     <div class="dropdown-menu">
                                                         <a href="{!! route('travel.edit', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
-                                                            <span data-feather="list"></span> Editar
+                                                            <span data-feather="list"></span> Asignar
                                                         </a>
                                                         <button type="submit" class="dropdown-item btn btn-danger btn-sm"
                                                             onclick="return confirm('Está seguro de eliminar este registro')"><span
