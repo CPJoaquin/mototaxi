@@ -85,7 +85,9 @@ class TravelController extends Controller
      */
     public function show($id)
     {
-        return 'mostrando transporte';
+        $travel = Travel::findOrFail($id);
+        return view('moto.travel.show')
+                ->with('item', $travel);
     }
 
     /**

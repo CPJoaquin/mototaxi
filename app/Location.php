@@ -10,5 +10,6 @@ class Location extends Model
         'primary',
         'secondary',
         'travel_id',
+        'description',
     ];
 }

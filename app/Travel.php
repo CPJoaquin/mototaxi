@@ -24,4 +24,7 @@ class Travel extends Model
     public function placa(){
         return $this->hasOne('App\Moto', 'id', 'moto_id' );
     }
+    public function location(){
+        return $this->hasOne('App\location', 'id', 'location_id');
+    }
 }

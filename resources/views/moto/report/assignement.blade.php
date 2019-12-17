@@ -12,16 +12,11 @@
                     </div>
                     @endif
                     <section>
-                        @if (Auth::user()->role == '')
-                            <h1 class="pull-left">Registro de historial de uso de nuestro servicio.</h1>
-                            <div class="d-flex">
-                                <a class="btn btn-primary ml-auto" style="margin-right: 5px;"
-                                    href="{{ route('location.create')}}"><i class="fas fa-plus-circle"></i> Solicitar transporte</a>
-                            </div>
-                        @endif
-                        @if (Auth::user()->role == 'C')
-                        <h1 class="pull-left">Registro de servicio.</h1>
-                        @endif
+                        <h1 class="pull-left">Registro de historial de uso de nuestro servicio.</h1>
+                        <div class="d-flex">
+                            <a class="btn btn-primary ml-auto" style="margin-right: 5px;"
+                                href="{{ route('location.create')}}"><i class="fas fa-plus-circle"></i> Solicitar transporte</a>
+                        </div>
                         <br>
                     </section>
                     <div>
@@ -75,9 +70,6 @@
                                                         <span data-feather="settings"> <i class="fas fa-align-left"></i> 
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a href="{!! route('travel.show', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
-                                                                <span data-feather="list"></span> Ver
-                                                            </a>
                                                             @if ( $item->state == 'en camino')
                                                                 <a href="{!! route('travel.confirm', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm" onclick="return confirm('¿Está seguro de confirmar la llegada a su destino?')">
                                                                     <span data-feather="list"></span> Confirmar

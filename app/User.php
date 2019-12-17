@@ -44,10 +44,6 @@ class User extends Authenticatable
         }
         else{
             return $this->hasMany(Travel::class, 'cliente_id', 'id')->orderBy('created_at', 'desc');            
-        }
-        return $this->hasMany(Travel::class, 'cliente_id', 'id')->orderBy('created_at', 'desc');        
-    }
-    public function Assignements(){
-       
+        }       
     }
 }

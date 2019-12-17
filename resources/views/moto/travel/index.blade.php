@@ -48,12 +48,12 @@
                                             @if (isset($item->conductor->name))
                                                 <td>{!! $item->conductor->name !!}</td>
                                             @else
-                                                <td>No asignado</td>
+                                                <td><strong>No asignado</strong></td>
                                             @endif                                                                                        
                                             @if (isset($item->placa))
                                                 <td>{{ $item->placa->placa  }}</td>
                                             @else
-                                                <td>No asignado </td>
+                                                <td><strong>No asignado</strong> </td>
                                             @endif                                            
                                             <td>{!! $item->date!!}</td>
                                             <td>{!! $item->time!!}</td>

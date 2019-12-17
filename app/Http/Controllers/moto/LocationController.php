@@ -18,8 +18,6 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $conductors = (new UserController)->conductors();
-        $motos = (new MotoController)->placas();
         return view('moto.location.index');
     }
 
@@ -44,6 +42,7 @@ class LocationController extends Controller
         $location = Location::create([
             'primary' => $request->primary,
             'secondary' => $request->secondary,
+            'description' => $request->description,
         ]);
         $location->save();
          $travel = (new TravelController)->store($request->time, $location->id);
