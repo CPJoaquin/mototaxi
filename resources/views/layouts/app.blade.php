@@ -8,7 +8,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ config('app.name', 'Fast Moto') }}</title>
+    <title>{{ config('app.name', 'KERO Moto') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -39,7 +39,7 @@
                     <a class="navbar-brand" href="{{ url('/home') }}">
                         <div id="logo">
                             <img src="{{ asset('/images/logo.svg') }}" class="app-logo" alt="logotipo">
-                            <h3><strong>Fast</strong> <small>moto</small></h3>
+                            <h3><strong>KERO</strong> <small>moto</small></h3>
                         </div>
                     </a>
                 </div>
@@ -109,9 +109,10 @@
     <!-- Main JS-->
     <script src="{{ asset('js/main.js') }}"></script>
 
-
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="{{ asset('js/chart.js') }}"></script>
 
 </body>
 </html>

@@ -130,4 +130,10 @@ class UserController extends Controller
         }
         return $conductors;
     }
+    public function countUsers(){
+        $client = User::where('role','')->count();
+        $driver = User::where('role','C')->count();
+        $other = User::where('role','A')->orWhere('role','B')->count();
+        return [$client, $driver, $other];
+    }
 }

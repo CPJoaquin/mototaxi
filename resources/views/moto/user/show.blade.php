@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('layouts.menu')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md">
@@ -15,7 +16,7 @@
                     <div class="card-body">
                         <h4 class="card-title d-flex">
                             Datos Personales
-                            <a href="{!! route('user.index') !!}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-arrow-alt-circle-left"></i> Atrás</a>
+                            <a href="{!! route('user.index') !!}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-arrow-alt-circle-left"></i> Lista de usuarios</a>
                         </h4>
                         <br>
                         <div class="shadow p-4 mb-4 bg-white">

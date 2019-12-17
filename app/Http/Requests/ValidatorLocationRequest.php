@@ -26,6 +26,7 @@ class ValidatorLocationRequest extends FormRequest
         return [
             'primary' => ['required', 'min:5', 'max:50'],
             'secondary' => ['required', 'min:5', 'max:100'],
+            'description' => ['required', 'min:10', 'max:150'],
             'time' => ['required'],
         ];
     }
@@ -37,6 +38,9 @@ class ValidatorLocationRequest extends FormRequest
             'secondary.required' => 'La calle secundaria es necesaria.',
             'secondary.min' => 'El campo deve constar de al menos 10 caracteres.',
             'secondary.max' => 'El campo debe ser de maximo 100 caracteres.',
+            'description.required' => 'La descripción es necesaria.',
+            'description.min' => 'El campo deve constar de al menos 10 caracteres.',
+            'description.max' => 'El campo debe ser de maximo 150 caracteres.',
             'time.required' => 'La hora es requerida.',
         ];
     }

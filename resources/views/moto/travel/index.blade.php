@@ -59,20 +59,23 @@
                                             <td>{!! $item->time!!}</td>
                                             <td>{!! $item->state!!}</td>
                                             <td class="text-center">
-                                                <div id="btn-group">
-                                                    {!! Form::open(['route' => ['travel.destroy', $item->id], 'method' => 'DELETE', 'id' => 'formDelete']) !!}
+                                                <div id="btn-group">                                                   
                                                     <button class="btn-sm btn-primary" data-toggle="dropdown" type="button">
                                                         <span data-feather="settings"> <i class="fas fa-align-left"></i> 
-                                                        </button>
+                                                    </button>
                                                     <div class="dropdown-menu">
-                                                        <a href="{!! route('travel.edit', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
-                                                            <span data-feather="list"></span> Asignar
+                                                        @if ($item->state == 'espera')
+                                                            <a href="{!! route('travel.edit', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
+                                                                <span data-feather="list"></span> Asignar
+                                                            </a>
+                                                        @endif
+                                                        <a href="{!! route('user.show', [$item->cliente_id])!!}"class="dropdown-item btn btn-warning btn-sm">
+                                                            <span data-feather="list"></span> Ver cliente
                                                         </a>
-                                                        <button type="submit" class="dropdown-item btn btn-danger btn-sm"
-                                                            onclick="return confirm('Está seguro de eliminar este registro')"><span
-                                                                data-feather="trash-2"></span> Eliminar</button>
+                                                        <a href="{!! route('user.show', [$item->driver_id])!!}"class="dropdown-item btn btn-warning btn-sm">
+                                                            <span data-feather="list"></span> Ver conductor
+                                                        </a>
                                                     </div>
-                                                    {!! Form::close() !!}
                                                 </div>
                                             </td>
                                         </tr>

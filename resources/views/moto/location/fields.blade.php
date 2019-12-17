@@ -23,6 +23,17 @@
         </div>
     </div>
 
+    <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
+        {!! Form::label('description', 'Descripción de la ubicacion:', ['class' => 'col-md-4 col-form-label text-md-right']) !!}
+
+        <div class="col-md-6">
+            {!! Form::textarea('description', null, ['class' => 'form-control', 'autofocus' => 'autofocus','style' =>
+            'text-transform:uppercase;', 'rows' => '3',
+            'onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) !!} 
+            {!! $errors->first('description', '<p class="alert-danger">:message</p>') !!}
+        </div>
+    </div>
+
     <div class="form-group row {{ $errors->has('time') ? 'has-error' : ''}}">
         {!! Form::label('time', 'Hora:', ['class' => 'col-md-4 col-form-label text-md-right']) !!}
 

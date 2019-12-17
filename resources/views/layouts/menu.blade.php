@@ -18,13 +18,15 @@
                         Transportes
                     </a>
                 </li>
-                <li hidden class="nav-item">
-                    <a href="#" class="nav-item btn btn-outline-info text-secondary">Reportes</a>
+                <li class="nav-item">
+                    <a href="{{ route('home.report') }}" class="nav-item btn btn-outline-info text-secondary">
+                        Reportes
+                    </a>
                 </li>
             @endif   
             <li class="nav-item">
                 <a href="{!! route('location.index') !!}" class="nav-item btn btn-outline-info text-secondary">Servicio</a>
-            </li>        
+            </li>         
             <li hidden class="nav-item">
                 <a href="{!! route('travel.map') !!}" class="nav-item btn btn-outline-info text-secondary">mapa</a>
             </li>

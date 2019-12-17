@@ -30,4 +30,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/map', 'moto\TravelController@map')->name('travel.map');
     Route::get('/confirm/{id}', 'moto\TravelController@confirm')->name('travel.confirm');
     Route::patch('/cancel/{id}', 'moto\TravelController@cancel')->name('travel.cancel');
+    Route::get('/report', 'HomeController@report')->name('home.report');
 });

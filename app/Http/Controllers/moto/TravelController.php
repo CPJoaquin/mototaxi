@@ -148,4 +148,11 @@ class TravelController extends Controller
         $travel->save();
         return redirect( route('location.index'));
     }
+    public function countTravel(){
+        $confirmed = Travel::where('state','confirmado')->count();
+        $pendient = Travel::where('state','en camino')->count();
+        $waiting = Travel::where('state','espera')->count();
+        $canceled = Travel::where('state','cancelado')->count();
+        return [$confirmed, $pendient, $waiting, $canceled];
+    }
 }
