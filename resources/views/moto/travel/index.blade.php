@@ -12,20 +12,10 @@
                     </div>
                     @endif
                     <section>
-                        <h1 class="pull-left">Registro de vehiculos</h1>
-                        <div class="d-flex">
-                            <a class="btn btn-primary ml-auto" style="margin-right: 5px;"
-                                href="{{ route('moto.create')}}"><i class="fas fa-plus-circle"></i> Nuevo</a>
-                        </div>
+                        <h1 class="pull-left">Registro de solicitudes de transporte</h1>
                         <br>
                     </section>
-                    {!! Form::open(['route' => 'moto.index', 'method' => 'GET', 'class' => ''])!!}
-                    <div id="form-group">
-                        {!!Form::text('buscar', null, ['class' => 'form-control', 'placeholder' => 'Buscar','style' =>
-                        'text-transform:uppercase;',
-                        'onkeyup' => 'javascript:this.value=this.value.toUpperCase();'])!!}
-                    </div>
-                    {!!Form::close()!!}
+                   
                     <br>
                     <div>
                         <table id="grilla" class="table table-bordered table-striped table-hover">
@@ -69,6 +59,9 @@
                                                                 <span data-feather="list"></span> Asignar
                                                             </a>
                                                         @endif
+                                                        <a href="{!! route('travel.show', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
+                                                            <span data-feather="list"></span> Ver solicitud
+                                                        </a>
                                                         <a href="{!! route('user.show', [$item->cliente_id])!!}"class="dropdown-item btn btn-warning btn-sm">
                                                             <span data-feather="list"></span> Ver cliente
                                                         </a>

@@ -13,9 +13,15 @@
                     <div class="card-body">
                         <h4 class="card-title d-flex">
                             Informacion de servicio
-                            <a href="{!! route('location.index') !!}" class="btn btn-primary btn-sm ml-auto">
-                                <i class="fas fa-arrow-alt-circle-left"></i> Atrás
-                            </a>
+                            @if (Auth::user()->role == 'B')
+                                <a href="{!! route('travel.index') !!}" class="btn btn-primary btn-sm ml-auto">
+                                    <i class="fas fa-arrow-alt-circle-left"></i> Atrás
+                                </a>
+                            @else
+                                <a href="{!! route('location.index') !!}" class="btn btn-primary btn-sm ml-auto">
+                                    <i class="fas fa-arrow-alt-circle-left"></i> Atrás
+                                </a>
+                            @endif
                         </h4>
                         <br>
                         <div class="shadow p-4 mb-4 bg-white">
@@ -60,8 +66,7 @@
                                     <a href="{!!route('user.edit', [$item->id])!!}" class="btn btn-danger">
                                         <i class="fas fa-trash-alt"></i> Cancelar
                                     </a>
-                                @endif
-                               
+                                @endif                               
                         </div>
                     </div>
                 </div>

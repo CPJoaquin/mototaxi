@@ -68,7 +68,7 @@
                                         <td>{!! $item->time!!}</td>
                                         <td>{!! $item->state!!}</td>
                                         <td class="text-center">
-                                            @if ($item->state != 'cancelado' && $item->state != 'confirmado')
+                                           
                                                 <div id="btn-group">
                                                     {!! Form::open(['route' => ['travel.cancel', $item->id], 'method' => 'patch']) !!}
                                                     <button class="btn-sm btn-primary" data-toggle="dropdown" type="button">
@@ -78,21 +78,22 @@
                                                             <a href="{!! route('travel.show', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
                                                                 <span data-feather="list"></span> Ver
                                                             </a>
-                                                            @if ( $item->state == 'en camino')
-                                                                <a href="{!! route('travel.confirm', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm" onclick="return confirm('¿Está seguro de confirmar la llegada a su destino?')">
-                                                                    <span data-feather="list"></span> Confirmar
-                                                                </a>
+                                                            @if ($item->state != 'cancelado' && $item->state != 'confirmado' && Auth::user()->role == '')
+                                                                @if ( $item->state == 'en camino')
+                                                                    <a href="{!! route('travel.confirm', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm" onclick="return confirm('¿Está seguro de confirmar la llegada a su destino?')">
+                                                                        <span data-feather="list"></span> Confirmar
+                                                                    </a>
+                                                                @endif
+                                                                
+                                                                <button type="submit" class="dropdown-item btn btn-danger btn-sm"
+                                                                    onclick="return confirm('Está seguro de eliminar este registro')"><span
+                                                                        data-feather="trash-2"></span> Cancelar
+                                                                </button>
                                                             @endif
-                                                            
-                                                            <button type="submit" class="dropdown-item btn btn-danger btn-sm"
-                                                                onclick="return confirm('Está seguro de eliminar este registro')"><span
-                                                                    data-feather="trash-2"></span> Cancelar
-                                                            </button>
-                                                            
                                                         </div>
                                                     {!! Form::close() !!}
                                                 </div>                                        
-                                            @endif
+                                            
                                         </td>
                                     </tr>
                                 @endforeach
