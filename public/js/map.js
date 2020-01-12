@@ -20,6 +20,7 @@ $(document).ready(function () {
                       }).addTo(myMap);
                     
                       let marker = L.marker([-17.97856, -67.10539]).addTo(myMap)
+                      let marker1 = L.marker([position.coords.latitude, position.coords.longitude]).addTo(myMap)
                   },
                   //Si no los entrega manda un alerta de error
                   function () {

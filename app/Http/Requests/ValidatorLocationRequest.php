@@ -36,10 +36,10 @@ class ValidatorLocationRequest extends FormRequest
             'primary.min' => 'El campo deve constar de al menos 5 caracteres.',
             'primary.max' => 'El campo debe ser de maximo 50 caracteres.',
             'secondary.required' => 'La calle secundaria es necesaria.',
-            'secondary.min' => 'El campo deve constar de al menos 10 caracteres.',
+            'secondary.min' => 'El campo deve constar de al menos 5 caracteres.',
             'secondary.max' => 'El campo debe ser de maximo 100 caracteres.',
             'description.required' => 'La descripción es necesaria.',
-            'description.min' => 'El campo deve constar de al menos 10 caracteres.',
+            'description.min' => 'El campo debe constar de al menos 10 caracteres.',
             'description.max' => 'El campo debe ser de maximo 150 caracteres.',
             'time.required' => 'La hora es requerida.',
         ];

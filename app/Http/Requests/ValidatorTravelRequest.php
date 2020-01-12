@@ -23,11 +23,13 @@ class ValidatorTravelRequest extends FormRequest
      */
     public function rules()
     {
-        return [        
+        return [    
+            'driver_id' => 'required',    
         ];
     }
     public function messages(){
         return [
-        ]
+            'driver_id.required' => 'El campo es requerido.',
+        ];
     }
 }

@@ -46,4 +46,8 @@ class User extends Authenticatable
             return $this->hasMany(Travel::class, 'cliente_id', 'id')->orderBy('created_at', 'desc');            
         }       
     }
+    public function confirmed(){
+        return $this->hasMany(Travel::class, 'driver_id', 'id')
+                    ->where('state', 'confirmado');
+    }
 }

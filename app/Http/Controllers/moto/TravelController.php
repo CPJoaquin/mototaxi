@@ -114,7 +114,7 @@ class TravelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidatorTravelRequest $request, $id)
     {
         $moto = (new MotoController)->getPlaca($request->driver_id);
         $travel = Travel::findOrFail($id);

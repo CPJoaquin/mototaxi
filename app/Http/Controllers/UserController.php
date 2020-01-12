@@ -130,10 +130,26 @@ class UserController extends Controller
         }
         return $conductors;
     }
+
+    public function drivers(){
+       return User::where('role', 'LIKE', 'C')->get();
+       
+    }
+
     public function countUsers(){
         $client = User::where('role','')->count();
         $driver = User::where('role','C')->count();
         $other = User::where('role','A')->orWhere('role','B')->count();
         return [$client, $driver, $other];
+    }
+    public function confirmed(){
+        $confirm = DB::table('travels')
+                ->select('driver_id', 'state')
+                ->where('state','confirmado')                
+                ->get();
+        $drivers = $this->drivers();
+        return view('moto.report.confirmed')
+                ->with('item', $confirm)
+                ->with('drivers', $drivers);
     }
 }
