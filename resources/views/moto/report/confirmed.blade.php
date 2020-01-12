@@ -25,11 +25,10 @@
                         <br>
                     </section>
                     <div>
+                        <h2 class="h2">Activiadad en viajes por conductor</h2>
                         <table id="grilla" class="table table-bordered table-striped table-hover">
                             <thead>
-                                <tr class="text-center">
-
-                            
+                                <tr class="text-center">                         
 
                                         <th>conductor</th>
                                         <th>confirmados</th>
