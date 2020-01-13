@@ -35,7 +35,7 @@ class TravelController extends Controller
 
     public function map()
     {
-        return view('moto.travel.map');
+        return view('moto.map.index');
     }
     /**
      * Show the form for creating a new resource.
