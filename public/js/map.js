@@ -6,21 +6,29 @@ L.tileLayer(tilesProvider,{
 var lt = -17.97856; 
 var lg = -67.10539;
 let marker = L.marker([lt, lg]).addTo(myMap);
+var popup = L.popup()
+    .setLatLng([lt, lg])
+    .setContent("Oficina KERO moto.")
+    .openOn(myMap);
 let iconMarker = L.icon({
 	iconUrl: '../images/marker.png',
 	iconSize: [60, 60],
 	iconAnchor: [30, 60],
 })
-let marker2 = L.marker([-17.98450, -67.10395], {
+/*let marker2 = L.marker([-17.98450, -67.10395], {
 	icon: iconMarker,
-}).addTo(myMap);
+}).addTo(myMap);*/
+let latLng
 myMap.doubleClickZoom.disable();
 myMap.on('dblclick', e => {
-  let latLng = myMap.mouseEventToLatLng(e.originalEvent);
-
+  latLng = myMap.mouseEventToLatLng(e.originalEvent);
   L.marker([latLng.lat, latLng.lng], { icon: iconMarker }).addTo(myMap)
   document.getElementById("latitud").value = latLng.lat;
   document.getElementById("longitud").value = latLng.lng;
+  var popup = L.popup()
+    .setLatLng([latLng.lat, latLng.lng])
+    .setContent("El transporte vendrá a esta ubicación.")
+    .openOn(myMap);
 })
 navigator.geolocation.getCurrentPosition(
   (pos) => {
