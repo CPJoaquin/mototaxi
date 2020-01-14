@@ -14,6 +14,7 @@ class Travel extends Model
         'state',
         'date',
         'time',
+        'map_id',
     ];
     public function cliente(){
         return $this->hasOne('App\User', 'id','cliente_id');

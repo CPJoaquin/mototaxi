@@ -20,7 +20,7 @@
         <div class="card container">
             <article class="row">
                 <div class="col container">
-                    <h2>Su timepo es nuestro tiempo <small> <br>Su puntualidad es la nuestra</small> </h2>
+                    <h2>Su tiempo es nuestro tiempo <small> <br>Su puntualidad es la nuestra</small> </h2>
                     <span class="date">Velocidad, seguridad, confiabilidad, accesibilidad y puntualidad. <br> <strong> Todo lo que necesita en un solo medio de transporte</strong></span>
                 </div>
                 <div class="col-12 container">

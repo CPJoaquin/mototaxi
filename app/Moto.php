@@ -13,4 +13,8 @@ class Moto extends Model
         'marc',
         'model',
     ];
+    public function scopeIndex($buscar){
+        return Moto::where('placa', 'LIKE', $buscar)
+        ->orWhere('model', 'LIKE', '%'.$buscar.'%')->paginate(10);
+    }
 }

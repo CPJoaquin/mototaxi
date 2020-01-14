@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Location extends Model
 {
@@ -12,4 +13,7 @@ class Location extends Model
         'travel_id',
         'description',
     ];
+    public function scopePrimary(){
+        return DB::table('locations')->pluck('primary', 'id');
+    }
 }

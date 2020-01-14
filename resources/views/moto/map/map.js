@@ -1,17 +1,18 @@
 const tilesPrivider = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-let myMap = L.map('myMap').setView([51.505, -0.09], 13)
+var lt = -17.97856;
+var lg = -67.10539;
+let myMap = L.map('myMap').setView([lt, lg], 13)
 L.tileLayer(tilesPrivider,{
 	maxZoom: 18,
 }).addTo(myMap);
-var lt = 51.505;
-var lg = -0.09;
+
 let marker = L.marker([lt, lg]).addTo(myMap);
 let iconMarker = L.icon({
 	iconUrl: 'marker.png',
 	iconSize: [60, 60],
 	iconAnchor: [30, 60],
 })
-let marker2 = L.marker([51.51, -0.09], {
+let marker2 = L.marker([lt, lg], {
 	icon: iconMarker,
 }).addTo(myMap);
 myMap.doubleClickZoom.disable();

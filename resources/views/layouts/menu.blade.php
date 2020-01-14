@@ -35,15 +35,16 @@
                 <li class="nav-item">
                     <a href="{!! route('location.index') !!}" class="nav-link btn btn-outline-info text-secondary">
                         Servicio
-                    </a>
-                    
+                    </a>                    
                 </li>
             @endif         
-            <li hidden class="nav-item">
-                <a href="{!! route('travel.map') !!}" class="nav-link btn btn-outline-info text-secondary">
-                    mapa
-                </a>
-            </li>
+            @if (Auth::user()->role == '')
+                <li class="nav-item">
+                    <a href="{!! route('map.index') !!}" class="nav-link btn btn-outline-info text-secondary">
+                        mapa
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>

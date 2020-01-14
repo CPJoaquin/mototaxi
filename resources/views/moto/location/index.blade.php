@@ -78,6 +78,11 @@
                                                             <a href="{!! route('travel.show', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
                                                                 <span data-feather="list"></span> Ver
                                                             </a>
+                                                            @if ($item->map_id != null)
+                                                            <a href="{!! route('map.show', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm">
+                                                                <span data-feather="list"></span> Ver mapa
+                                                            </a>
+                                                            @endif
                                                             @if ($item->state != 'cancelado' && $item->state != 'confirmado' && Auth::user()->role == '')
                                                                 @if ( $item->state == 'en camino')
                                                                     <a href="{!! route('travel.confirm', [$item->id])!!}"class="dropdown-item btn btn-warning btn-sm" onclick="return confirm('¿Está seguro de confirmar la llegada a su destino?')">

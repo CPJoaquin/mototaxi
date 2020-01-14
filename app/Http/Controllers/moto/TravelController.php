@@ -4,6 +4,7 @@ namespace App\Http\Controllers\moto;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Requests\ValidatorMapRequest;
 use App\Http\Requests\ValidatorTravelRequest;
 use App\Travel;
 use App\User;
@@ -33,9 +34,31 @@ class TravelController extends Controller
                 ->with('users', $users);
     }
 
-    public function map()
+    public function map(ValidatorMapRequest $request)
     {
-        return view('moto.map.index');
+        $map_id = (new MapController)->store($request->latitud, $request->longitud);
+        
+        try{
+            $now = date("Y-m-d");        
+            $time = date("H:i:s");
+            $localTime =date('H:i:s',  strtotime('-4 hour', strtotime($time)));
+            $cliente_id = Auth::user()->id;
+            $travel = Travel::create([
+                'cliente_id' => $cliente_id,
+                'driver_id' => null,
+                'moto_id' => null,                
+                'state' => 'espera',
+                'date' => $now,
+                'time' => $localTime,
+                'map_id' => $map_id,
+            ]);
+            $travel->save();
+            return redirect(route('location.index'));
+        }
+        catch(\Exception $exeption){
+            return $exeption;
+        }   
+        
     }
     /**
      * Show the form for creating a new resource.
@@ -156,5 +179,8 @@ class TravelController extends Controller
         $waiting = Travel::where('state','espera')->count();
         $canceled = Travel::where('state','cancelado')->count();
         return [$confirmed, $pendient, $waiting, $canceled];
+    }
+    public function search($id){
+        return Travel::findOrFail($id);
     }
 }

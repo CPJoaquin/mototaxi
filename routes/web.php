@@ -26,10 +26,12 @@ Route::group(['middleware' => ['auth']], function () {
         'moto' => 'moto\MotoController',
         'travel' => 'moto\TravelController',
         'location' => 'moto\LocationController',
+        'map' => 'moto\MapController',
     ]);
-    Route::get('/map', 'moto\TravelController@map')->name('travel.map');
+    Route::post('/position', 'moto\TravelController@map')->name('travel.map');
     Route::get('/confirm/{id}', 'moto\TravelController@confirm')->name('travel.confirm');
     Route::patch('/cancel/{id}', 'moto\TravelController@cancel')->name('travel.cancel');
     Route::get('/report', 'HomeController@report')->name('home.report');
     Route::get('/confirmed', 'UserController@confirmed')->name('user.confirmed');
+    Route::get('map', 'moto\MapController@index')->name('map.index');
 });
