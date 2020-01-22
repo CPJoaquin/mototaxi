@@ -15,10 +15,7 @@ let iconMarker = L.icon({
 	iconSize: [60, 60],
 	iconAnchor: [30, 60],
 })
-/*let marker2 = L.marker([-17.98450, -67.10395], {
-	icon: iconMarker,
-}).addTo(myMap);*/
-let latLng
+let latLng;
 myMap.doubleClickZoom.disable();
 myMap.on('dblclick', e => {
   latLng = myMap.mouseEventToLatLng(e.originalEvent);
